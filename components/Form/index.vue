@@ -14,12 +14,12 @@
 			<view v-for="item in data" key="item.type">
 				<view class="text-type">{{item.type}}</view>
 				<view v-if="item.type == '性别'">
-					<radio-group @change="radioChange" style="width: 320px;display: flex;justify-content: space-between;" class="text-type text-value">
+					<radio-group @change="radioChange" style="width: pxTorem(320px);display: flex;justify-content: space-between;" class="text-type text-value">
 						<label>
-							<radio value="男"/><span style="margin-left: 20px;">男</span>
+							<radio value="男"/><span style="margin-left: pxTorem(20px);">男</span>
 						</label>
 						<label>
-							<radio value="女"/><span style="margin-left: 20px;">女</span>
+							<radio value="女"/><span style="margin-left: pxTorem(20px);">女</span>
 						</label>
 					</radio-group>
 				</view>
@@ -28,7 +28,7 @@
 			</view>
 		</view>
 		<view class="form-warp-bottom" v-for="item in userElse" :key="item">
-			<text class="text-type" style="width: 288px;">{{item}}</text>
+			<text class="text-type" style="width: pxTorem(288px);">{{item}}</text>
 			<button class="mini-btn" type="primary" size="mini">编辑</button>
 		</view>
 	</view>
@@ -62,14 +62,21 @@ import { ref } from "vue";
 
 <style lang="scss">
 $font-family:'PingFang SC-Bold, PingFang SC';
+$browser-default-font-size: 75px;//变量的值可以根据自己需求定义
+		html {
+			    font-size: $browser-default-font-size;
+			}
+		@function pxTorem($px){//$px为需要转换的字号
+		    @return  $px / $browser-default-font-size  * 2rem;
+		}
 .form-warp{
-	min-width: 750px;
+	min-width: pxTorem(750px);
 }
 .form-warp-top{
 	background-color: #fff;
 	&>view{
-		padding-right: 20px;
-		height: 98px;
+		padding-right: pxTorem(20px);
+		height: pxTorem(98px);
 		display: flex;
 		border-bottom: 1px solid #f5f5f5;
 		align-items: center;
@@ -79,31 +86,33 @@ $font-family:'PingFang SC-Bold, PingFang SC';
 		border-bottom: 0;
 	}
 	image{
-		max-width: 44px;
-		max-height: 44px;
+		max-width: pxTorem(44px);
+		max-height: pxTorem(44px);
 	}
 	button{
 		position: absolute;
-		height: 62px;
+		height: pxTorem(62px);
 		// background: #3491FA;
-		line-height: 42px;
+		line-height: pxTorem(42px);
 		border-radius: 4px 4px 4px 4px;
 	}
 	.mini-btn{
-		right: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+		right: pxTorem(20px);
 	}
 	.mini-btn1{
-		right: 184px;
+		right: pxTorem(184px);
 	}
 }
 .text-type{
-		width: 204px;
-		margin-right: 54px;
-		font-size: 34px;
+		width: pxTorem(204px);
+		margin-right: pxTorem(40px);
+		font-size: pxTorem(34px);
 		font-family: $font-family;
 		font-weight: bold;
 		color: #333333;
-		padding: 25px 20px 25px 30px;
+		padding: pxTorem(25px) pxTorem(20px) pxTorem(25px) pxTorem(30px);
 	}
 	.text-value{
 		width: 100%;
@@ -112,29 +121,29 @@ $font-family:'PingFang SC-Bold, PingFang SC';
 		
 	}
 .mini-btn{
-	padding: 10px 42px;
+	padding: pxTorem(10px) pxTorem(42px);
 	// width: 60px;
-	height: 42px;
-	font-size: 30px;
+	height: pxTorem(42px);
+	font-size: pxTorem(30px);
 	font-family: $font-family;
 	font-weight: 500;
 	color: #FFFFFF;
-	line-height:22px;
+	line-height:pxTorem(22px);
 }
 .form-warp-bottom{
-	margin-top: 20px;
+	margin-top: pxTorem(20px);
 	background-color: #FFFFFF;
-	padding: 32px 20px 32px 0px;
+	padding: pxTorem(32px) pxTorem(20px) pxTorem(32px) 0px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	position: relative;
 	button{
 		position: absolute;
-		right: 20px;
-		height: 62px;
+		right: pxTorem(20px);
+		height: pxTorem(62px);
 		// background: #3491FA;
-		line-height: 42px;
+		line-height: pxTorem(42px);
 		border-radius: 4px 4px 4px 4px;
 	}
 }

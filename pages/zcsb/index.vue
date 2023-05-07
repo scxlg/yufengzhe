@@ -54,29 +54,36 @@
 </script>
 
 <style lang="scss">
+	$browser-default-font-size: 75px;//变量的值可以根据自己需求定义
+		html {
+			    font-size: $browser-default-font-size;
+			}
+		@function pxTorem($px){//$px为需要转换的字号
+		    @return  $px / $browser-default-font-size  * 2rem;
+		}
 .main{
-	padding: 20px 30px 30px;
+	padding: pxTorem(20px) pxTorem(30px) pxTorem(30px);
 	background-color: #f5f5f5;
 	&>view{
-		margin-bottom: 24px;
-		font-size: 30px;
+		margin-bottom: pxTorem(24px);
+		font-size: pxTorem(30px);
 		font-family: PingFang SC-Regular, PingFang SC;
 		font-weight: 400;
 		color: #333333;
-		line-height: 48px;
+		line-height: pxTorem(48px);
 		.title{
-			font-size: 34px;
+			font-size: pxTorem(34px);
 			font-weight: bold;
 		}
 		.mini-btn{
-			font-size: 30px;
+			font-size: pxTorem(30px);
 			font-family: PingFang SC-Medium, PingFang SC;
 			font-weight: 500;
 		}
 		&>view{
 			margin-bottom: 1px;
 			&>view{
-				padding: 32px;
+				padding: pxTorem(32px);
 				background-color: #fff;
 				margin-bottom: 1px;
 			}
@@ -86,7 +93,7 @@
 			position: relative;
 			button{
 				position: absolute;
-				right: 32px;
+				right: pxTorem(32px);
 			}
 		}
 		}
@@ -96,8 +103,8 @@
 			display: flex;
 			align-items: center;
 			&>view:first-child{
-				width: 173px;
-				margin-right: 72px;
+				width: pxTorem(173px);
+				margin-right: pxTorem(72px);
 			}
 			&>view:last-child{
 				flex: 1;
@@ -108,13 +115,13 @@
 		position: relative;
 		button{
 			position: absolute;
-			right: 30px;
-			width: 160px;
-			height: 54px;
+			right: pxTorem(30px);
+			width: pxTorem(200px);
+			height: pxTorem(54px);
 			background: #EEF1F9;
 			border-radius: 4px 4px 4px 4px;
-			font-size: 30px;
-			line-height: 54px;
+			font-size: pxTorem(30px);
+			line-height: pxTorem(54px);
 			font-family: PingFang SC-Medium, PingFang SC;
 			font-weight: 500;
 			color: #3491FA;

@@ -4,9 +4,6 @@
 		<view class="main" >
 			<view class="">
 				<uni-steps :options="list" active-color="#007AFF" :active="active" direction="column">
-					<template>
-						<view>hhh</view>
-					</template>
 				</uni-steps>
 			</view>
 		</view>
@@ -33,26 +30,43 @@
 </script>
 
 <style lang="scss">
+	$font-family:'PingFang SC-Bold, PingFang SC';
+	$browser-default-font-size: 75px;//变量的值可以根据自己需求定义
+			html {
+				    font-size: $browser-default-font-size;
+				}
+			@function pxTorem($px){//$px为需要转换的字号
+			    @return  $px / $browser-default-font-size  * 2rem;
+			}
 .main{
-	padding: 20px 30px 30px;
+	padding: pxTorem(20px) pxTorem(30px) pxTorem(30px);
 	background-color: #f5f5f5;
 	&>view{
 		background-color: #fff;
-		margin-bottom: 24px;
-		padding: 32px;
+		margin-bottom: pxTorem(24px);
+		padding: pxTorem(32px);
 	}
 }
 :deep(.uni-steps__column-desc){
-	padding: 18px 119px 14px 30px;
-	width: 511px;
-	height: 168px;
+	padding: pxTorem(18px) pxTorem(119px) pxTorem(14px) pxTorem(30px);
+	width: pxTorem(511px);
+	height: pxTorem(168px);
 	background: #F2F6FF;
 	border-radius: 4px 4px 4px 4px;
-	opacity: 1;
-	font-size: 28px;
+	font-size: pxTorem(28px);
 	font-family: PingFang SC-Regular, PingFang SC;
 	font-weight: 400;
 	color: #333333;
-	line-height: 48px;
+	line-height: pxTorem(48px);
+}
+:deep(.uni-steps__column-title){
+	margin: pxTorem(60px) 0 pxTorem(8px);
+	span{
+		width: pxTorem(102px);
+		font-size: pxTorem(34px);
+		font-family: PingFang SC-Bold, PingFang SC;
+		font-weight: bold;
+		color: #333333;
+	}
 }
 </style>

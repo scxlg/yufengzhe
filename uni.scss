@@ -74,3 +74,12 @@ $uni-color-subtitle: #555555; // 二级标题颜色
 $uni-font-size-subtitle:26px;
 $uni-color-paragraph: #3F536E; // 文章段落颜色
 $uni-font-size-paragraph:15px;
+
+
+$browser-default-font-size: 75px;//变量的值可以根据自己需求定义
+	html {
+		    font-size: $browser-default-font-size;
+		}
+	@function pxTorem($px){//$px为需要转换的字号
+	    @return  $px / $browser-default-font-size  * 2rem;
+	}
